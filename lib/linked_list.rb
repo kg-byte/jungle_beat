@@ -16,7 +16,7 @@ attr_reader :head
 
   def listify 
   	@list.each_with_index do |node, index|
-  	  if index < @list.count-1 
+  	  if index < count-1 
   	  	node.next_node = @list[index+1]
   	  end
   	end
