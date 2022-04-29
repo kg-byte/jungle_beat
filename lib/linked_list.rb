@@ -30,5 +30,16 @@ attr_reader :head
   	 @list.map {|node| node.data}.join(" ")
   end
 
+  def prepend(beat)
+  	node = Node.new(beat)
+  	@list.unshift(node)
+  	listify
+  end
+
+  def insert(location, beat)
+  	node = Node.new(beat)
+  	@list.insert(location,node)
+  	listify
+  end
 
 end
