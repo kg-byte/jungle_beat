@@ -2,9 +2,14 @@ require 'node'
 
 class LinkedList
 attr_reader :head
-  def initialize
-  	@head = nil 
-  	@list = []
+  def initialize(beat = nil)
+    if beat == nil 
+  	  @head = nil 
+    	@list = []
+    else 
+      @head = Node.new(beat)
+      @list = [@head]
+    end
   end
 
   def append(beat)

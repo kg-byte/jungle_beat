@@ -24,4 +24,13 @@ RSpec.describe JungleBeat do
   	jb.append("deep doo ditt woo hoo shu")
   	expect(jb.play).to eq `say -r 500 -v Boing #{beats}`
   end
+
+  it 'does not append a beat unless it is valid' do 
+  	jb = JungleBeat.new("deep")
+  	jb.append("Mississippi")
+  	expect(jb.all).to eq("deep")
+  	jb.prepend("lee tee ree Mississippi")
+  	expect(jb.all).to eq("lee tee ree deep")
+
+  end
 end
