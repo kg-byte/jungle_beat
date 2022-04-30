@@ -27,7 +27,7 @@ attr_reader :head
   end
 
   def to_string
-  	 @list.map {|node| node.data}.join(" ")
+  	 string_array.join(" ")
   end
 
   def prepend(beat)
@@ -42,4 +42,23 @@ attr_reader :head
   	listify
   end
 
+  def string_array 
+  	@list.map{|node| node.data}
+  end
+  def find(location, number)
+  	if number == 1
+  	  string_array[location]
+  	else
+  		string_array[location..location+number-1].join(" ")
+  	end
+  end
+
+  def includes?(beat)
+  	string_array.include?(beat)
+  end
+
+  def pop 
+  	@list.pop 
+  	listify
+  end
 end

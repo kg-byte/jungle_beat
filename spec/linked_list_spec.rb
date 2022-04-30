@@ -53,6 +53,41 @@ RSpec.describe LinkedList do
       list.insert(1, 'woo')
       expect(list.to_string).to eq 'dop woo plop suu'
     end
-  end
 
+    it 'fiinds and returns said number of beats' do 
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+
+      expect(list.find(2,1)).to eq 'shi'
+      expect(list.find(1,3)).to eq 'woo shi shu'
+    end
+
+
+    it 'checks whether string includes a beat' do 
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+
+      expect(list.includes?('deep')).to be true
+      expect(list.includes?('dep')).to be false
+    end
+
+    it 'can delete the last node' do 
+      list.append('deep')
+      list.append('woo')
+      list.append('shi')
+      list.append('shu')
+      list.append('blop')
+
+      list.pop
+      list.pop 
+      expect(list.to_string).to eq 'deep woo shi'
+
+    end
+  end
 end
