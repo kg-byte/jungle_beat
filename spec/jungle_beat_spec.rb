@@ -19,4 +19,9 @@ RSpec.describe JungleBeat do
   	expect(jb.count).to be 6
   end
 
+  it 'can play the beats generated' do 
+  	beats = "deep doo ditt woo hoo shu"
+  	jb.append("deep doo ditt woo hoo shu")
+  	expect(jb.play).to eq `say -r 500 -v Boing #{beats}`
+  end
 end
