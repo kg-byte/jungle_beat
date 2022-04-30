@@ -1,14 +1,19 @@
 require 'linked_list'
 
 class JungleBeat 
-attr_accessor :list 
+attr_accessor :list, :voice, :rate
   def initialize(beat = nil)
-	@list = LinkedList.new(beat)
+	@list = LinkedList.new
+	if beat != nil 
+		append(beat)
+	end
+	@voice = 'Boing'
+	@rate = 500
   end	  
 
 
   def valid?(beat)
-  	valid_beats = ["lee", "ree", "tee", "dee", "deep", "bop", "boop", "la", "na", "doo", "ditt", "woo", "hoo", "shu"]
+  	valid_beats = ["lee", "ree", "tee", "dee", "deep", "bop", "boop", "la", "na", "doo", "ditt", "woo", "hoo", "shu", 'dop']
   	if valid_beats.include?(beat)
   	  true
   	else 
@@ -33,6 +38,14 @@ attr_accessor :list
   	end
   end
 
+  def reset_rate
+  	@rate = 500
+  end
+
+  def reset_voice
+  	@voice = 'Boing'
+  end
+
   def count 
   	@list.count 
   end
@@ -43,6 +56,6 @@ attr_accessor :list
 
   def play 
   	beats = @list.to_string
-  	`say -r 500 -v Boing #{beats}`
+  	`say -r #{@rate} -v #{@voice} #{beats}`
   end
 end
